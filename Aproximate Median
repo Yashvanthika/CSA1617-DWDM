@@ -1,0 +1,15 @@
+intervals <- c("1-5", "5-15", "15-20", "20-50", "50-80", "80-110")
+frequencies <- c(200, 450, 300, 1500, 700, 44)
+
+cum_freq <- cumsum(frequencies)
+N <- sum(frequencies) 
+N_half <- N / 2  # Median position
+
+median_index <- which(cum_freq >= N_half)[1]
+L <- c(1, 5, 15, 20, 50, 80)[median_index]  
+F <- ifelse(median_index == 1, 0, cum_freq[median_index - 1])  
+f <- frequencies[median_index]  
+h <- c(4, 10, 5, 30, 30, 30)[median_index]  
+
+median_value <- L + ((N_half - F) / f) * h
+cat("Approximate Median:", median_value, "\n")
