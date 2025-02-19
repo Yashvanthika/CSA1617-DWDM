@@ -1,0 +1,12 @@
+# Sample data (Points scored by 10 players)
+scores <- c(5, 10, 15, 20, 25, 30, 100, 35, 40, 45)
+
+# Create boxplot
+boxplot(scores, 
+        main = "Tennis Players' Scores",
+        ylab = "Points Scored",
+        col = "orange")
+
+# Identify Outliers
+outliers <- boxplot.stats(scores)$out
+cat("Outliers in Scores:", outliers, "\n")
