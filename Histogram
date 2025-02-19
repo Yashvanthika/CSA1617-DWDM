@@ -1,0 +1,31 @@
+marks <- c(55, 60, 71, 63, 55, 65, 50, 55, 58, 59, 61, 63, 65, 67, 71, 72, 75)
+
+marks <- sort(marks)
+
+num_bins <- 3
+
+bin_size <- ceiling(length(marks) / num_bins)
+
+equal_freq_bins <- split(marks, ceiling(seq_along(marks) / bin_size))
+
+print("Equal-Frequency Bins:")
+print(equal_freq_bins)
+
+min_val <- min(marks)
+max_val <- max(marks)
+bin_width <- (max_val - min_val) / num_bins  
+
+equal_width_bins <- cut(marks, breaks = seq(min_val, max_val, by = bin_width), include.lowest = TRUE)
+
+print("Equal-Width Bins:")
+print(table(equal_width_bins))
+
+par(mfrow = c(1, 2)) 
+
+hist(marks, breaks = length(equal_freq_bins), col = "blue", main = "Equal-Frequency Binning",
+     xlab = "Marks", ylab = "Frequency", border = "black")
+
+hist(marks, breaks = seq(min_val, max_val, by = bin_width), col = "red", main = "Equal-Width Binning",
+     xlab = "Marks", ylab = "Frequency", border = "black")
+
+par(mfrow = c(1, 1))  
