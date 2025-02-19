@@ -1,0 +1,18 @@
+# Load dataset
+diabetes <- read.csv("diabetes.csv")
+
+# Scatter Plot
+plot(diabetes$Age, diabetes$BloodPressure, 
+     main = "Blood Pressure vs Age",
+     xlab = "Age",
+     ylab = "Blood Pressure",
+     col = "blue",
+     pch = 16)
+
+# Bar Chart
+barplot(diabetes$BloodPressure, 
+        names.arg = diabetes$Age, 
+        main = "Blood Pressure by Age",
+        xlab = "Age",
+        ylab = "Blood Pressure",
+        col = "lightblue")
