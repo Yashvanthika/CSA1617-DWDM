@@ -1,0 +1,19 @@
+age <- c(23, 23, 27, 27, 39, 41, 45, 49, 50, 53, 53, 54, 56, 57, 58, 58, 60, 61)
+
+x <- 35
+
+min_age <- min(age)
+max_age <- max(age)
+min_max_norm <- (x - min_age) / (max_age - min_age)
+
+mean_age <- mean(age)  
+std_dev_age <- 12.94   
+z_score_norm <- (x - mean_age) / std_dev_age
+
+max_age_abs <- max(abs(age))
+j <- nchar(as.character(max_age_abs))  
+decimal_scaling_norm <- x / (10^j)
+
+cat("Min-Max Normalization (35):", min_max_norm, "\n")
+cat("Z-Score Normalization (35):", z_score_norm, "\n")
+cat("Decimal Scaling Normalization (35):", decimal_scaling_norm, "\n")
