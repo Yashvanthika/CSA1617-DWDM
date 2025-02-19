@@ -1,0 +1,20 @@
+# Load dataset
+water <- read.csv("https://vincentarelbundock.github.io/Rdatasets/csv/boot/water.csv")
+
+# Scatter plot for Mortality vs Hardness
+plot(water$hardness, water$mortality, 
+     main = "Mortality vs Hardness",
+     xlab = "Hardness",
+     ylab = "Mortality",
+     col = "blue",
+     pch = 16)
+
+# Fit linear regression model
+model <- lm(mortality ~ hardness, data = water)
+
+# Add regression line
+abline(model, col="red")
+
+# Predict mortality for hardness = 88
+predicted_mortality <- predict(model, data.frame(hardness = 88))
+cat("Predicted Mortality for Hardness 88:", predicted_mortality, "\n")
