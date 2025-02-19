@@ -1,0 +1,12 @@
+data <- c(200, 300, 400, 600, 1000)
+
+min_value <- min(data)
+max_value <- max(data)
+min_max_norm <- (data - min_value) / (max_value - min_value)
+
+mean_value <- mean(data)
+sd_value <- sd(data)
+z_score_norm <- (data - mean_value) / sd_value
+
+cat("Min-Max Normalization:\n", min_max_norm, "\n")
+cat("Z-score Normalization:\n", z_score_norm, "\n")
