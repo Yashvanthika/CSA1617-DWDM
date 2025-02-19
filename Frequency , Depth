@@ -1,0 +1,43 @@
+marks <- c(55, 60, 71, 63, 55, 65, 50, 55, 58, 59, 61, 63, 65, 67, 71, 72, 75)
+
+marks_sorted <- sort(marks)  # Sort data
+num_bins <- 3
+bin_size <- length(marks_sorted) / num_bins
+bins_equal_freq <- split(marks_sorted, ceiling(seq_along(marks_sorted) / bin_size))
+
+# Print Equal-Frequency Bins
+print("Equal-Frequency Partitioning:")
+print(bins_equal_freq)
+
+# (b) Equal-Width Partitioning
+min_marks <- min(marks)
+max_marks <- max(marks)
+bin_width <- (max_marks - min_marks) / num_bins
+bin_edges <- seq(min_marks, max_marks, by = bin_width)
+bins_equal_width <- cut(marks, breaks = bin_edges, include.lowest = TRUE)
+
+# Print Equal-Width Bins
+print("Equal-Width Partitioning:")
+print(table(bins_equal_width))
+
+# Histogram for Marks Distribution
+hist(marks, 
+     main = "Histogram of Marks",
+     xlab = "Marks",
+     ylab = "Frequency",
+     col = "lightblue",
+     border = "black")
+
+# Given car speed data
+speed <- c(78.3, 81.8, 82, 74.2, 83.4, 84.5, 82.9, 77.5, 80.9, 70.6)
+
+# Calculate Interquartile Range (IQR)
+iqr_speed <- IQR(speed)
+
+# Calculate Standard Deviation
+std_dev_speed <- sd(speed)
+
+# Print results
+cat("Interquartile Range (IQR) of Speed:", iqr_speed, "\n")
+cat("Standard Deviation of Speed:", std_dev_speed, "\n")
+
